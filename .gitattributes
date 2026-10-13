@@ -1,0 +1,17 @@
+# Scripts and Dockerfiles are mounted into Linux containers: CRLF would make bash
+# fail with "$'\r': command not found". Keep them LF regardless of the committing host.
+*.sh text eol=lf
+Dockerfile text eol=lf
+Dockerfile.* text eol=lf
+
+# Patches are uploaded byte-for-byte to the platform form: never normalize them.
+*.patch -text
+
+# The git job queue is appended by both workers; a CR from the Windows side made the same job claim twice.
+sim-queue/*.txt text eol=lf
+
+# claimed.txt and done.txt are append-only from both workers, so concurrent appends are not a real conflict:
+# union-merge them. A conflicted rebase used to wedge the worker (and once committed conflict markers).
+# queue.txt is hand-edited (lines get deleted on purpose) and must NOT be union-merged: resolve it by hand.
+sim-queue/claimed.txt merge=union
+sim-queue/done.txt merge=union

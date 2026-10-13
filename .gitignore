@@ -1,0 +1,66 @@
+**/.DS_Store
+.idea/
+.mac-grading-ok
+__pycache__/
+node_modules/
+sim-worker.log
+.claude/skills/olympus-clear/sim/machines.local.conf
+.claude/skills/olympus-clear/sim/machine.local.env
+.claude/skills/olympus-clear/sim/local-queue.txt
+.claude/skills/olympus-clear/sim/local-queue.claimed
+local-worker.log
+maitrish_tasks/*.png
+maitrish_tasks/*/athens/
+maitrish_tasks/*/gocron-tests/
+maitrish_tasks/*/gocron/
+maitrish_tasks/*/keploy-tests/
+maitrish_tasks/*/keploy/
+maitrish_tasks/*/rhai/
+maitrish_tasks/*/rhai-tests/
+maitrish_tasks/*/rhai-scratch/
+maitrish_tasks/*/rhai-patchcheck/
+maitrish_tasks/*/runs/*.zip
+maitrish_tasks/*/verify/
+tmp-apiprobe/chunks.txt
+tmp-apiprobe/js/
+tools/olympus-cli/*.tgz
+tools/olympus-cli/package/
+maitrish_tasks/*/gate-r/*-run.log
+maitrish_tasks/*/rhai-image-build/
+maitrish_tasks/*/replay/results-*.txt
+maitrish_tasks/*/sim/smoke-last.log
+maitrish_tasks/*/sim/.grading-ok
+maitrish_tasks/*/verify/
+maitrish_tasks/*/verify/
+
+# scratch clones for Phase 1 host screening
+tmp-screen/
+screen/
+maitrish_tasks/*/image-src/
+
+# secrets and stray tool state accidentally swept in by git add -A (purged from history 2026-09-09)
+.env
+.env.*
+*/gcloud/*
+**/.config/gcloud/**
+**/AppData/**
+C*Users*maitr*/
+*credentials.db
+*access_tokens.db
+maitrish_tasks/*/tmp-*/
+.claude/skills/olympus-clear/sim/local-queue.done
+.claude/skills/olympus-clear/sim/local-queue*
+
+# Legacy per-task clone tree and git worktrees: multi-gigabyte working data, never versioned here.
+tasks/
+.worktrees/
+
+# Local OpenAI API key for the LLM gates: a live secret, never versioned.
+openaiapikey.txt
+
+# Regenerable index over corpus/evidence (`oly corpus rebuild-manifest`); was 133 MB and re-committed per capture.
+corpus/manifest.jsonl
+
+# 250 MB vendored harness binary; exceeded GitHub blob limit (2026-10-02)
+studies/prefix-probe/draft-probe/harness/bin/apply_patch
+.olympus-farm/
